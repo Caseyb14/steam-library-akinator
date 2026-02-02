@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container text-center text-white">
+        <h1 class="display-4 mb-5">🧠 Neural Network Status</h1>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card p-4 bg-success text-white">
+                    <h3>Total Games Learned</h3>
+                    <h1 class="display-1 fw-bold">{{ games_count }}</h1>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-4 bg-primary text-white">
+                    <h3>Decision Nodes</h3>
+                    <h1 class="display-1 fw-bold">{{ questions_count }}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-4 mx-auto text-dark" style="max-width: 600px;">
+            <h3 class="mb-3">Latest Discoveries</h3>
+            <ul class="list-group list-group-flush">
+                {% for game in recent_games %}
+                    <li class="list-group-item">
+                        <span class="badge bg-info text-dark me-2">NEW</span>
+                        {{ game.text }}
+                    </li>
+                {% else %}
+                    <li class="list-group-item text-muted">No new data yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-5">
+            <a href="/" class="btn btn-outline-light btn-lg">Back to Game</a>
+        </div>
+    </div>
+{% endblock %}

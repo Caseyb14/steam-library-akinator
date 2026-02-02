@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="card p-5 mx-auto" style="max-width: 600px;">
+        <h2 class="mb-4">You stumped me!</h2>
+        <p>Help me learn. What game were you thinking of?</p>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form action="/check_game" method="post">
+            <div class="input-group mb-3">
+                <input type="text" name="game_name" class="form-control" placeholder="e.g. Elden Ring" required>
+                <button class="btn btn-primary" type="submit">Check Game</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

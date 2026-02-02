@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="card p-5 mx-auto" style="max-width: 600px;">
+
+        <span class="badge bg-secondary mb-3">Question #{{ step }}</span>
+
+        <h2 class="mb-4">{{ node.text }}</h2>
+
+        <form action="/answer" method="post">
+            <div class="d-grid gap-3 d-md-block">
+                <button name="choice" value="yes" class="btn btn-yes btn-lg px-5">Yes</button>
+                <button name="choice" value="no" class="btn btn-no btn-lg px-5">No</button>
+            </div>
+        </form>
+
+        <div class="mt-4">
+            <a href="/undo" class="text-muted text-decoration-none">
+                <small>↩ Oops, go back</small>
+            </a>
+        </div>
+    </div>
+{% endblock %}

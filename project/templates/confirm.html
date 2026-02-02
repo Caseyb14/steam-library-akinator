@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="card p-5 mx-auto" style="max-width: 600px;">
+        <h2 class="mb-3">Is this correct?</h2>
+        <p>You typed: <em>"{{ user_input }}"</em></p>
+
+        <div class="alert alert-info">
+            I found: <strong>{{ found_game }}</strong>
+        </div>
+
+        <div class="d-grid gap-3 d-md-block">
+            <form action="/confirm_game" method="post" style="display: inline;">
+                <input type="hidden" name="confirmed_name" value="{{ found_game }}">
+                <button class="btn btn-success btn-lg">Yes, that's it</button>
+            </form>
+
+            <a href="/lose" class="btn btn-danger btn-lg">No, try again</a>
+        </div>
+    </div>
+{% endblock %}
